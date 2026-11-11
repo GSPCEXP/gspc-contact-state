@@ -1,0 +1,14 @@
+class,run,h_MW_m2_K,SE_MW_m2_K,note
+open,series2_x100,0.1,0.2,
+open,series1_x000_continuation,0.15,0.15,"slope 0.0 +- 0.15, entered at 0.15"
+open,series1_x025,0.2,0.3,
+open,series1_x100,0.2,0.2,
+open,series2_x000_300MPa,0.2,0.2,
+open,series1_x010,0.3,0.3,
+open,series1_x000,0.4,0.2,
+open,series1_x050,0.5,0.3,
+open,series2_x010,0.7,0.2,
+open,series2_x025,0.7,0.2,
+open,series2_x050,0.9,0.2,
+open,series2_x000,1,0.2,
+closed,series2_x000_300MPa_long,1226.5,23.8,9.1 M steps

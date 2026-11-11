@@ -1,0 +1,10 @@
+quantity,bed,value,uncertainty,range_95_low,range_95_high,note,source
+kc_W_mK,dense,171.8,1.8,,,standard error over five packings,code/network_model.py
+kc_W_mK,porous,140.1,1.6,,,standard error over five packings,code/network_model.py
+k_over_kc_as_pressed,dense,0.035,0.003,,,errors from the pellets and the packings,value: code/network_model.py; uncertainty: analysis in the paper
+k_over_kc_after_heating,dense,0.165,0.005,,,errors from the pellets and the packings,value: code/network_model.py; uncertainty: analysis in the paper
+k_over_kc_as_pressed,porous,0.026,0.004,,,errors from the pellets and the packings,value: code/network_model.py; uncertainty: analysis in the paper
+k_over_kc_after_heating,porous,0.142,0.008,,,errors from the pellets and the packings,value: code/network_model.py; uncertainty: analysis in the paper
+touching_share,both,0.375,0.009,0.360,0.390,"random placement, every touching contact metallic after heating; posterior standard deviation",analysis in the paper
+intermediate_share,both,0.192,0.023,0.150,0.240,"random placement, every touching contact metallic after heating; posterior standard deviation",analysis in the paper
+closed_share,both,0.183,0.027,0.130,0.230,"random placement, every touching contact metallic after heating; posterior standard deviation",analysis in the paper

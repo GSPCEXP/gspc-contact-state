@@ -1,0 +1,30 @@
+# Heat run of the closed Cu/Cu2O interface at 300 K (Table A1).
+# equil.restart: the equilibrated cell, from the preparation. ffield.comb3: LAMMPS potentials folder.
+# Groups along z, from the preparation: gbot (the fixed bottom layer), ghot and gcold (the baths at the two ends), gmob (every atom outside gbot).
+
+units           metal
+atom_style      charge
+boundary        p p f
+read_restart    equil.restart
+mass            1 63.546
+mass            2 15.999
+pair_style      comb3 polar_off
+pair_coeff      * * ffield.comb3 Cu O
+neighbor        2.0 bin
+neigh_modify    every 1 delay 0 check yes
+
+fix             ffix gbot setforce 0 0 0
+fix             fnve gmob nve
+timestep        0.0002
+fix             fhot  ghot  langevin 360 360 0.05 111 tally yes
+fix             fcold gcold langevin 240 240 0.05 112 tally yes
+
+variable        Aload equal lx*ly
+variable        Ftot  equal 1.873e-3*v_Aload
+variable        Npist equal count(gcold)
+variable        fzp   equal -v_Ftot/v_Npist
+fix             fload gcold addforce 0.0 0.0 ${fzp}
+
+compute         cz gmob chunk/atom bin/1d z lower 2.0 units box
+fix             ftz gmob ave/chunk 100 2500 250000 cz temp file tprofile.dat
+run             9100000

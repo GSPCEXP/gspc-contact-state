@@ -1,0 +1,18 @@
+parameter,value
+software,Ansys Rocky 2024 R1
+particle shape,sphere
+normal force,linear hysteresis
+tangential force,elastic Coulomb
+rolling resistance,none
+adhesion,linear
+loading stiffness_MPa,10
+friction coefficient,0.3
+restitution,0.3
+gravity_m_s2,9.81
+die cavity_um,177.7 x 177.7
+punch speed_um_s,71.1
+seed shift packing 1_um,0 0 0
+seed shift packing 2_um,2.7 0 -1.9
+seed shift packing 3_um,-2.2 1.4 2.6
+seed shift packing 4_um,1.6 -1.1 -2.9
+seed shift packing 5_um,-2.9 2.1 1.2

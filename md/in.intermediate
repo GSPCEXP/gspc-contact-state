@@ -1,0 +1,35 @@
+# Heat run of one intermediate cell at 300 K (Table A1).
+# structure.data: a structure of the kind given in structures/. Cu_u3.eam: LAMMPS potentials folder.
+# Groups along z, from the preparation: fixed (the two end layers), hot and cold (the baths next to them), mobile (every atom outside fixed).
+
+units           metal
+dimension       3
+boundary        p p f
+atom_style      atomic
+neighbor        2.0 bin
+neigh_modify    every 1 delay 0 check yes
+
+read_data       structure.data
+
+pair_style      hybrid eam eam lj/cut 10.7375
+pair_coeff      1 1 eam 1 Cu_u3.eam
+pair_coeff      2 2 eam 2 Cu_u3.eam
+pair_coeff      1 2 lj/cut 0.0011 4.295 10.7375
+
+group           cu1 type 1
+group           cu2 type 2
+timestep        0.001
+
+fix             wall_lo all wall/reflect zlo EDGE
+fix             wall_hi all wall/reflect zhi EDGE
+fix             f_fix fixed setforce 0.0 0.0 0.0
+fix             f_nve mobile nve
+fix             f_hot  hot  langevin 310 310 0.5 48279 tally yes
+fix             f_cold cold langevin 290 290 0.5 93741 tally yes
+
+compute         chunks all chunk/atom bin/1d z lower 2.0 units box
+fix             f_tp all ave/chunk 200 250 50000 chunks temp file temp_profile.dat
+variable        hot_energy  equal f_f_hot
+variable        cold_energy equal f_f_cold
+fix             f_e all ave/time 1 1 1000 v_hot_energy v_cold_energy file energy_flux.dat
+run             10000000

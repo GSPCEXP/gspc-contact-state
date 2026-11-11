@@ -1,0 +1,16 @@
+pellet,state,method,thickness_mm,porosity,resistivity_Ohm_m
+A4,as pressed,two-wire clamp,2.73,0.242,3220
+A5,as pressed,two-wire clamp,2.705,0.237,2700
+B4,as pressed,two-wire clamp,4.0,0.241,3350
+B5,as pressed,two-wire clamp,4.05,0.252,3540
+C4,as pressed,two-wire clamp,5.295,0.236,4200
+C5,as pressed,two-wire clamp,5.285,0.238,3010
+A7,heated,face four-probe,2.725,,0.00028
+A8,heated,face four-probe,2.705,,0.00045
+A9,heated,face four-probe,2.73,,0.00026
+B7,heated,face four-probe,3.97,,7.2e-05
+B8,heated,face four-probe,3.96,,1.8e-05
+B9,heated,face four-probe,3.935,,2e-05
+C7,heated,face four-probe,5.27,,9.3e-06
+C8,heated,face four-probe,5.28,,2.7e-06
+C9,heated,face four-probe,5.3,,5e-06
